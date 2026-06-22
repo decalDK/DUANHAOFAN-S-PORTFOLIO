@@ -1,0 +1,421 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="段皓凡工业设计作品集">
+  <title>段皓凡 | Industrial Design Portfolio</title>
+  <style>
+    :root{--bg:#f8f8fc;--text:#111;--muted:#666570;--line:#c9c9cf;--g:clamp(20px,3.5vw,68px)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,"Microsoft YaHei",sans-serif}
+    body.menu-open{overflow:hidden}a{color:inherit;text-decoration:none}button{font:inherit}
+    .nav{position:fixed;z-index:10;inset:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:20px var(--g);transition:.25s}
+    .nav.scrolled{background:#f8f8fceb;border-bottom:1px solid #d7d7dc;backdrop-filter:blur(12px)}
+    .brand{font-weight:700;letter-spacing:.08em}.links{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}.links a{border-bottom:1px solid transparent}.links a:hover{border-color:currentColor}
+    .menu{display:none;border:0;background:none;padding:10px 0;letter-spacing:.12em}
+    .hero{position:relative;width:100%;height:auto;min-height:0;aspect-ratio:16/9;overflow:hidden;background:#f9f8fd;isolation:isolate;padding-top:34px}
+    .hero-base{display:block;width:100%;height:100%;object-fit:contain}
+    .hero-bubble{position:absolute;z-index:1;left:0;top:0;width:100px;height:100px;object-fit:contain;pointer-events:none;user-select:none;will-change:transform}
+    .meta{font-size:12px;letter-spacing:.13em;text-transform:uppercase}
+    .resume-transition{height:clamp(90px,7vw,130px);background:#f9f8fd}
+    .resume{position:relative;overflow:hidden;background:#f7f7fb;border-bottom:1px solid var(--line)}.resume>img{display:block;width:100%;height:auto}.resume-mobile{display:none}
+    main{position:relative;overflow:hidden;padding:0 var(--g)}
+    .section-title{display:flex;justify-content:space-between;align-items:end;padding:110px 0 24px;border-bottom:1px solid var(--line)}
+    .section-title h2{margin:0;font-size:clamp(36px,6vw,90px);line-height:.9;letter-spacing:-.05em}
+    .project{--theme:#111;--theme-ink:#fff;position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,3vw,52px);align-items:stretch;padding:clamp(72px,8vw,128px) 0;border-bottom:1px solid var(--line)}
+    #project-1{--theme:#FF4B21;--theme-ink:#111}
+    #project-2{--theme:#FF6082;--theme-ink:#fff}
+    #project-3{--theme:#A5D03D;--theme-ink:#111}
+    #project-4{--theme:#64A7FF;--theme-ink:#111}
+    #project-5{--theme:#FDE273;--theme-ink:#111}
+    #project-1{--button-grad:linear-gradient(90deg,rgba(255,75,33,.88),rgba(255,151,86,.82),rgba(253,216,165,.78))}
+    #project-2{--button-grad:linear-gradient(90deg,rgba(207,199,248,.9),rgba(237,190,227,.86),rgba(249,184,207,.9))}
+    #project-3{--button-grad:linear-gradient(90deg,rgba(211,236,202,.92),rgba(190,214,170,.88),rgba(204,231,217,.9))}
+    #project-4{--button-grad:linear-gradient(90deg,rgba(197,216,249,.92),rgba(194,201,247,.88),rgba(206,193,242,.9))}
+    #project-5{--button-grad:linear-gradient(90deg,rgba(251,229,170,.92),rgba(233,239,211,.88),rgba(203,230,247,.9))}
+    .project>*:not(.project-moon){position:relative;z-index:1}.project-moon{position:absolute;z-index:0;pointer-events:none}
+    .project-moon.edge{width:clamp(150px,19vw,300px);opacity:.42;filter:saturate(1.12) contrast(1.04)}
+    .project-moon.soft{width:clamp(90px,11vw,170px);opacity:.13;filter:saturate(.85)}
+    .project-moon{animation:moon-float var(--duration,10s) ease-in-out infinite alternate;transform:rotate(var(--angle,0deg))}
+    .project-moon.soft{animation-name:moon-float-soft;animation-direction:alternate-reverse}
+    #project-1 .edge{left:-9%;top:3%;--angle:18deg;--dx:28px;--dy:-18px;--turn:15deg;--duration:7.8s}
+    #project-1 .soft{left:25%;bottom:2%;width:clamp(80px,9vw,140px);--angle:202deg;--dx:-20px;--dy:24px;--turn:-13deg;--duration:9.4s}
+    #project-2 .edge{left:-12%;top:5%;width:clamp(170px,21vw,330px);--angle:156deg;--dx:32px;--dy:16px;--turn:-16deg;--duration:8.6s}
+    #project-2 .soft{left:26%;bottom:5%;width:clamp(100px,12vw,185px);--angle:-12deg;--dx:-24px;--dy:-20px;--turn:14deg;--duration:7.5s}
+    #project-3 .edge{right:-7%;bottom:3%;width:clamp(140px,17vw,270px);--angle:32deg;--dx:-27px;--dy:22px;--turn:17deg;--duration:9.7s}
+    #project-3 .soft{left:18%;top:12%;width:clamp(75px,8vw,130px);--angle:214deg;--dx:19px;--dy:-24px;--turn:-15deg;--duration:8.1s}
+    #project-4 .edge{left:-9%;bottom:1%;width:clamp(190px,23vw,350px);--angle:142deg;--dx:30px;--dy:-17px;--turn:-14deg;--duration:9.1s}
+    #project-4 .soft{left:29%;top:11%;width:clamp(95px,10vw,155px);--angle:8deg;--dx:-22px;--dy:18px;--turn:16deg;--duration:7.2s}
+    #project-5 .edge{right:-12%;top:5%;width:clamp(160px,20vw,315px);--angle:48deg;--dx:-31px;--dy:19px;--turn:15deg;--duration:8.4s}
+    #project-5 .soft{left:20%;bottom:5%;width:clamp(90px,11vw,175px);--angle:228deg;--dx:21px;--dy:-22px;--turn:-13deg;--duration:10s}
+    @keyframes moon-float{from{transform:translate3d(0,0,0) rotate(var(--angle)) scale(.97)}to{transform:translate3d(var(--dx),var(--dy),0) rotate(calc(var(--angle) + var(--turn))) scale(1.055)}}
+    @keyframes moon-float-soft{from{transform:translate3d(0,0,0) rotate(var(--angle)) scale(.94)}to{transform:translate3d(var(--dx),var(--dy),0) rotate(calc(var(--angle) + var(--turn))) scale(1.07)}}
+    .project-visual{grid-column:1/9;grid-row:1;position:relative;aspect-ratio:3/2;overflow:hidden;background:#fff;border:1px solid #dedee3}
+    .project-visual img{width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.22,1,.36,1)}
+    #project-1 .project-visual,#project-2 .project-visual,#project-3 .project-visual,#project-4 .project-visual,#project-5 .project-visual{background:#f8f8fc;border-radius:15px;box-shadow:0 14px 36px rgba(87,78,121,.10)}
+    #project-1 .project-visual::before,#project-1 .project-visual::after,#project-2 .project-visual::before,#project-2 .project-visual::after,#project-3 .project-visual::before,#project-3 .project-visual::after,#project-4 .project-visual::before,#project-4 .project-visual::after,#project-5 .project-visual::before,#project-5 .project-visual::after{content:"";position:absolute;z-index:2;left:0;width:100%;height:8%;pointer-events:none;backdrop-filter:blur(12px) saturate(1.15);box-shadow:inset 0 1px rgba(255,255,255,.55),inset 0 -1px rgba(255,255,255,.24)}
+    #project-1 .project-visual::before{top:0;background:linear-gradient(90deg,rgba(255,75,33,.66) 0%,rgba(255,151,86,.62) 48%,rgba(253,216,165,.62) 100%)}
+    #project-1 .project-visual::after{bottom:0;background:linear-gradient(90deg,rgba(254,210,158,.62) 0%,rgba(255,139,83,.62) 48%,rgba(255,75,33,.66) 100%)}
+    #project-2 .project-visual::before{top:0;background:linear-gradient(90deg,rgba(207,199,248,.72) 0%,rgba(237,190,227,.68) 48%,rgba(249,184,207,.7) 100%)}
+    #project-2 .project-visual::after{bottom:0;background:linear-gradient(90deg,rgba(249,198,226,.7) 0%,rgba(232,195,240,.68) 48%,rgba(202,197,246,.72) 100%)}
+    #project-3 .project-visual::before{top:0;background:linear-gradient(90deg,rgba(211,236,202,.74) 0%,rgba(201,222,181,.7) 48%,rgba(222,237,193,.72) 100%)}
+    #project-3 .project-visual::after{bottom:0;background:linear-gradient(90deg,rgba(225,239,207,.72) 0%,rgba(190,214,170,.7) 48%,rgba(204,231,217,.74) 100%)}
+    #project-4 .project-visual::before{top:0;background:linear-gradient(90deg,rgba(197,216,249,.74) 0%,rgba(191,190,244,.7) 48%,rgba(210,199,247,.72) 100%)}
+    #project-4 .project-visual::after{bottom:0;background:linear-gradient(90deg,rgba(212,226,250,.72) 0%,rgba(194,201,247,.7) 48%,rgba(206,193,242,.74) 100%)}
+    #project-5 .project-visual::before{top:0;background:linear-gradient(90deg,rgba(251,229,170,.76) 0%,rgba(246,237,190,.7) 48%,rgba(205,229,241,.72) 100%)}
+    #project-5 .project-visual::after{bottom:0;background:linear-gradient(90deg,rgba(203,230,247,.72) 0%,rgba(233,239,211,.7) 48%,rgba(251,232,177,.76) 100%)}
+    #project-1 .project-visual img,#project-2 .project-visual img,#project-3 .project-visual img,#project-4 .project-visual img,#project-5 .project-visual img{position:relative;z-index:1;object-fit:contain}
+    .project-visual:hover img{transform:scale(1.025)}
+    .project-copy{grid-column:10/13;grid-row:1;display:flex;height:100%;flex-direction:column;align-items:flex-start;padding-top:4px}
+    .project:nth-of-type(even) .project-visual{grid-column:5/13}
+    .project:nth-of-type(even) .project-copy{grid-column:1/4}
+    .project-copy>div{width:100%}
+    .project:nth-of-type(odd) .project-copy{align-items:flex-end;text-align:right}
+    .project:nth-of-type(odd) .project-tags{justify-content:flex-end}
+    .project:nth-of-type(odd) .project-description{margin-left:auto}
+    #project-5 .project-visual{grid-column:1/9;aspect-ratio:3/2}
+    #project-5 .project-copy{grid-column:10/13;align-items:flex-end;text-align:right;padding-top:4px}
+    #project-5 .project-tags{justify-content:flex-end}
+    #project-5 .project-description{max-width:27ch;margin-left:auto}
+    #project-5 .project-copy h3{max-width:12.5em}
+    .project-copy h3{margin:14px 0 7px;font-size:clamp(26px,2.9vw,44px);line-height:1.08;letter-spacing:-.035em}
+    .project-en{margin:0;font-size:clamp(10px,.78vw,12px);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+    .project-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+    .project-tags span{padding:5px 10px;border-radius:999px;background:rgba(17,17,17,.09);font-size:10px;line-height:1;white-space:nowrap}
+    .project-description{max-width:27ch;min-height:4.95em;margin:clamp(32px,4vw,58px) 0 24px;color:var(--muted);font-size:clamp(13px,1vw,15px);line-height:1.65}
+    .project-link{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-width:min(100%,290px);min-height:48px;margin-top:auto;padding:0 24px;border-radius:999px;background:var(--button-grad);color:#111;font-size:13px;font-weight:700;letter-spacing:.08em;box-shadow:inset 0 1px rgba(255,255,255,.55),0 10px 24px rgba(87,78,121,.08);transition:transform .25s,filter .25s}
+    .project-link span{font-size:20px;transition:transform .25s}.project-link:hover{filter:saturate(1.08) brightness(.98);transform:translateY(-2px)}.project-link:hover span{transform:translateX(4px)}.project-link:active{transform:translateY(0)}
+    .project-transition-stage{position:fixed;z-index:9998;inset:0;background:#f8f8fc;opacity:0;pointer-events:none;transition:opacity .42s ease}
+    .project-transition-stage.active{opacity:1}
+    .project-transition-cover{position:fixed;z-index:9999;margin:0;object-fit:cover;pointer-events:none;box-shadow:0 18px 70px rgba(30,30,45,.1);transition:top .78s cubic-bezier(.22,1,.36,1),left .78s cubic-bezier(.22,1,.36,1),width .78s cubic-bezier(.22,1,.36,1),height .78s cubic-bezier(.22,1,.36,1),border-radius .78s cubic-bezier(.22,1,.36,1),opacity .2s ease}
+    body.project-leaving{overflow:hidden}
+    footer{position:relative;isolation:isolate;min-height:clamp(640px,74vh,820px);overflow:hidden;padding:clamp(130px,12vw,180px) var(--g) 38px;background:#f8f8fc;color:#111;border-top:1px solid var(--line)}
+    footer h2{position:relative;z-index:1;margin:16px 0 88px;max-width:none;font-size:clamp(34px,5vw,78px);line-height:1;letter-spacing:-.045em;white-space:nowrap}
+    .contact-list{position:relative;z-index:1;display:flex;width:min(100%,520px);flex-direction:column;align-items:stretch;padding-bottom:22px;border-bottom:1px solid var(--line)}
+    .contact-list a{display:inline-flex;align-items:center;gap:13px;padding:13px 0;color:#33323a;font-size:clamp(18px,1.65vw,26px);letter-spacing:.08em;line-height:1.2;transition:transform .24s,color .24s}
+    .contact-list a:hover{color:#111;transform:translateY(-2px)}
+    .contact-list svg{width:26px;height:26px;flex:0 0 auto;stroke:currentColor;stroke-width:2.1;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .foot{position:relative;z-index:1;display:flex;justify-content:space-between;margin-top:96px;padding-top:20px;border-top:1px solid var(--line);font-size:13px}
+    .footer-moon{position:absolute;z-index:0;left:0;top:0;width:var(--size);height:var(--size);object-fit:contain;pointer-events:none;user-select:none;will-change:transform}
+    .footer-moon.blue{--size:clamp(300px,38vw,560px);opacity:.86}
+    .footer-moon.pink{--size:clamp(160px,22vw,330px);opacity:.86}
+    a:focus-visible,button:focus-visible{outline:3px solid #315efb;outline-offset:5px}
+    @media(max-width:760px){
+      .nav{padding:14px 20px}.menu{display:block}.links{position:fixed;inset:0;background:#f8f8fc;display:none;flex-direction:column;justify-content:center;padding:28px;font-size:clamp(38px,13vw,64px);line-height:1.35}.links.open{display:flex}.menu{position:relative;z-index:11}
+      .hero{height:auto;min-height:0;padding-top:64px;aspect-ratio:16/9}.hero-base{height:100%;object-fit:contain}
+      .resume-transition{height:70px}.resume>img{display:none}.resume-mobile{position:relative;z-index:1;display:grid}.resume-mobile img{display:block;width:100%;height:auto}
+      .section-title{padding-top:80px}.project{display:flex;min-height:0;flex-direction:column;padding:72px 0 86px}.project-copy,.project:nth-of-type(even) .project-copy,#project-5 .project-copy{width:100%;height:auto;min-height:0;padding:0}.project-copy h3{font-size:clamp(27px,8vw,36px)}.project-visual,.project:nth-of-type(even) .project-visual,#project-5 .project-visual{order:2;width:100%;margin-top:42px;aspect-ratio:3/2}.project-description,#project-5 .project-description{min-height:0;margin-top:34px;margin-bottom:26px;font-size:14px}.project-link{min-width:240px;margin-top:0}
+      .project-moon.edge{max-width:155px;opacity:.36}.project-moon.soft{max-width:90px;opacity:.1}
+      #project-1 .edge,#project-3 .edge,#project-5 .edge{right:-60px;left:auto}#project-2 .edge,#project-4 .edge{left:-60px;right:auto}
+      #project-1 .soft{right:8%;top:60%}#project-2 .soft{left:7%;bottom:4%}#project-3 .soft{right:10%;bottom:5%}#project-4 .soft{left:9%;top:62%}#project-5 .soft{right:8%;bottom:8%}
+      footer{min-height:680px;padding-top:96px}footer h2{font-size:clamp(34px,10vw,58px);margin-bottom:58px;white-space:normal}.contact-list{width:100%}.contact-list a{padding:17px 0;font-size:16px}.footer-moon.blue{--size:76vw}.footer-moon.pink{--size:44vw}.foot{gap:20px;flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.project-visual img,.nav{transition:none}.hero-bubble{will-change:auto}.project-moon,.footer-moon{animation:none}}
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="#top">DUAN HAOFAN</a>
+    <nav class="links" id="links" aria-label="主导航">
+      <a href="#top">首页</a><a href="#resume">简历</a><a href="#work">作品</a><a href="#contact">联系</a>
+    </nav>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="links">菜单</button>
+  </header>
+
+  <section class="hero" id="top" aria-label="作品集封面">
+    <img class="hero-base" src="assets/portfolio-cover-clean.png" alt="段皓凡 2024 至 2026 工业设计作品集封面">
+    <img class="hero-bubble" src="assets/hero-crescent-orange.png?v=3" alt="" data-main="true" data-x=".823" data-y=".258" data-size=".456" data-base-rot="150" data-amp="15" data-period="4.1" data-phase="0" data-collision=".43">
+    <img class="hero-bubble" src="assets/hero-crescent-spectrum.png?v=3" alt="" data-main="true" data-x=".680" data-y=".535" data-size=".394" data-base-rot="180" data-amp="15" data-period="4.5" data-phase="3.14159" data-collision=".43">
+    <img class="hero-bubble" src="assets/hero-crescent-aqua-original.png?v=4" alt="" data-main="true" data-x=".832" data-y=".680" data-size=".32" data-base-rot="30" data-amp="15" data-period="3.9" data-phase="1.5708" data-collision=".42">
+    <img class="hero-bubble" src="assets/hero-crescent-blue.png?v=3" alt="" data-x=".600" data-y=".113" data-size=".104" data-base-rot="90" data-amp="5" data-period="9.4" data-phase="4.7124">
+  </section>
+
+  <div class="resume-transition" aria-hidden="true"></div>
+
+  <section class="resume" id="resume" aria-label="个人简历">
+    <img src="assets/resume-decorated.png?v=2" alt="段皓凡个人简历">
+    <div class="resume-mobile">
+      <img src="assets/resume-profile.jpg" alt="段皓凡个人信息与技能">
+      <img src="assets/resume-education.jpg" alt="段皓凡教育与学校任职经历">
+      <img src="assets/resume-projects.jpg" alt="段皓凡项目经历">
+    </div>
+  </section>
+
+  <main>
+    <div class="section-title" id="work">
+      <h2>Selected Work</h2><span class="meta">01—05</span>
+    </div>
+
+    <article class="project" id="project-1">
+      <a class="project-visual" href="project-motion.html"><img src="assets/project-motion-controller.png?v=h1" alt="体感运动游戏手柄设计项目总览"></a>
+      <div class="project-copy">
+        <div><span class="meta">Motion interaction · 2026</span><h3>体感运动游戏手柄设计</h3><p class="project-en">Motion Interactive Game Controller Design</p><div class="project-tags"><span>用户研究</span><span>体感交互</span><span>流程呈现</span></div></div>
+        <p class="project-description">针对重型手柄与运动交互反馈不足的问题，优化握持曲面、分区结构与配重方式，提升运动游戏中的稳定性、真实交互感和使用安全性。</p>
+        <a class="project-link" href="project-motion.html" data-project-transition="motion">查看项目总览 <span aria-hidden="true">→</span></a>
+      </div>
+      <img class="project-moon edge" src="assets/project-crescent-1.png?v=2" alt="">
+      <img class="project-moon soft" src="assets/project-crescent-1.png?v=2" alt="">
+    </article>
+
+    <article class="project" id="project-2">
+      <a class="project-visual" href="project-gac.html"><img src="assets/project-gac-mobility.png?v=g2" alt="GAC 大湾区智慧出行企划项目总览"></a>
+      <div class="project-copy">
+        <div><span class="meta">Smart mobility planning · 2024</span><h3>大湾区智慧出行企划</h3><p class="project-en">GAC Greater Bay Area Smart Mobility Planning</p><div class="project-tags"><span>设计管理</span><span>未来交通</span><span>COOP</span></div></div>
+        <p class="project-description">面向粤港澳大湾区未来立体交通场景，以虚拟仿真呈现 eVTOL、滑动底盘等新型交通工具，探索智慧出行系统的社会与商业价值。</p>
+        <a class="project-link" href="project-gac.html" data-project-transition="gac">查看项目总览 <span aria-hidden="true">→</span></a>
+      </div>
+      <img class="project-moon edge" src="assets/project-crescent-2.png?v=2" alt="">
+      <img class="project-moon soft" src="assets/project-crescent-2.png?v=2" alt="">
+    </article>
+
+    <article class="project" id="project-3">
+      <a class="project-visual" href="project-scooter.html"><img src="assets/project-public-scooter.png?v=s3" alt="公共空间电动租赁滑板车设计项目总览"></a>
+      <div class="project-copy">
+        <div><span class="meta">Mobility design · 2024</span><h3>公共空间电动租赁滑板车设计</h3><p class="project-en">Scooter Design for Public Spaces</p><div class="project-tags"><span>出行设计</span><span>公共产品</span><span>结构设计</span></div></div>
+        <p class="project-description">面向公共空间短途出行与共享租赁场景，围绕轻便操作、稳定结构和高识别度设计电动滑板车，提升日常使用与维护体验。</p>
+        <a class="project-link" href="project-scooter.html" data-project-transition="scooter">查看项目总览 <span aria-hidden="true">→</span></a>
+      </div>
+      <img class="project-moon edge" src="assets/project-crescent-3.png?v=2" alt="">
+      <img class="project-moon soft" src="assets/project-crescent-3.png?v=2" alt="">
+    </article>
+
+    <article class="project" id="project-4">
+      <a class="project-visual" href="project-eped.html"><img src="assets/project-eped-purifier.png?v=l4" alt="EPED 实验室纯水机设计项目总览"></a>
+      <div class="project-copy">
+        <div><span class="meta">Laboratory equipment · 2025</span><h3>EPED 实验室纯水机设计</h3><p class="project-en">Laboratory Water Purifier Design</p><div class="project-tags"><span>结构设计</span><span>动画展示</span><span>COOP</span></div></div>
+        <p class="project-description">围绕实验室日常取水需求，整合防水触控、模块化滤芯与漏水监测功能，在保障稳定性能的同时提升安装、维护和操作效率。</p>
+        <a class="project-link" href="project-eped.html" data-project-transition="eped">查看项目总览 <span aria-hidden="true">→</span></a>
+      </div>
+      <img class="project-moon edge" src="assets/project-crescent-4.png?v=2" alt="">
+      <img class="project-moon soft" src="assets/project-crescent-4.png?v=2" alt="">
+    </article>
+
+    <article class="project" id="project-5">
+      <a class="project-visual" href="project-solis.html"><img src="assets/project-solis-vault.png?v=e5" alt="SOLIS-VAULT 家用储能电池设计项目总览"></a>
+      <div class="project-copy">
+        <div><span class="meta">Energy product design · 2025</span><h3>SOLIS-VAULT 家用储能电池设计</h3><p class="project-en">Residential Energy Storage Power Station Design</p><div class="project-tags"><span>模块化设计</span><span>家庭储能</span></div></div>
+        <p class="project-description">以轻量化、模块化与智能化为核心，构建可拆分电池组合和多重供电系统，改善传统储能设备笨重、复杂且难以融入家庭的问题。</p>
+        <a class="project-link" href="project-solis.html" data-project-transition="solis">查看项目总览 <span aria-hidden="true">→</span></a>
+      </div>
+      <img class="project-moon edge" src="assets/project-crescent-5.png?v=2" alt="">
+      <img class="project-moon soft" src="assets/project-crescent-5.png?v=2" alt="">
+    </article>
+
+  </main>
+
+  <footer id="contact">
+    <span class="meta">Let’s work together</span>
+    <h2>期待您的联络</h2>
+    <div class="contact-list" aria-label="联系方式">
+      <a href="weixin://dl/chat?dhf15147168088" aria-label="微信 dhf15147168088">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 6.5c-4 0-7.2 2.5-7.2 5.7 0 1.8 1 3.4 2.7 4.4l-.5 2 2.3-1.2c.8.3 1.7.5 2.7.5 4 0 7.2-2.5 7.2-5.7s-3.2-5.7-7.2-5.7Z"/><path d="M14.2 10.4c3.3.2 5.8 2.3 5.8 5 0 1.5-.8 2.8-2.2 3.7l.4 1.7-1.9-.9c-.7.2-1.4.3-2.1.3-2.8 0-5.2-1.6-5.8-3.8"/><path d="M7.6 11.2h.01M12.6 11.2h.01M13.6 15.2h.01M17.3 15.2h.01"/></svg>
+        dhf15147168088
+      </a>
+      <a href="tel:15147168088" aria-label="电话 15147168088">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 4.2 9.6 3l3 5.2-2 1.4c1.1 2.2 2.7 3.8 4.9 4.9l1.4-2 5.2 3-1.2 2.4c-.7 1.5-2.3 2.3-3.9 1.8-6-1.8-10.7-6.5-12.5-12.5-.5-1.6.3-3.2 1.7-4Z"/><path d="M15.5 4.5a4 4 0 0 1 4 4M15.5 1.8a6.7 6.7 0 0 1 6.7 6.7"/></svg>
+        15147168088
+      </a>
+      <a href="mailto:decaldk@163.com" aria-label="邮箱 decaldk@163.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5 12 2l9 5.5V20H3V7.5Z"/><path d="m3 8 9 6 9-6"/></svg>
+        decaldk@163.com
+      </a>
+    </div>
+    <div class="foot"><span>© 2026 段皓凡</span></div>
+    <img class="footer-moon blue" src="assets/hero-crescent-orange.png?v=3" data-x=".78" data-y=".36" data-size=".38" data-base-rot="180" data-amp="10" data-period="5.2" data-phase="0" data-collision=".41" alt="">
+    <img class="footer-moon pink" src="assets/hero-crescent-spectrum.png?v=3" data-x=".54" data-y=".61" data-size=".22" data-base-rot="135" data-amp="10" data-period="4.7" data-phase="2.2" data-collision=".42" alt="">
+  </footer>
+
+  <script>
+    const nav=document.querySelector('#nav'),menu=document.querySelector('#menu'),links=document.querySelector('#links');
+    addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+    menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.textContent=open?'关闭':'菜单';menu.setAttribute('aria-expanded',open);document.body.classList.toggle('menu-open',open)});
+    links.addEventListener('click',()=>{links.classList.remove('open');menu.textContent='菜单';menu.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open')});
+
+    const hero=document.querySelector('.hero'),bubbleEls=[...document.querySelectorAll('.hero-bubble')];
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const pointer={x:-9999,y:-9999,active:false};
+    let bubbles=[],last=performance.now();
+
+    function setBubbleBounds(reset=false){
+      const rect=hero.getBoundingClientRect(),base=rect.height;
+      const top=innerWidth<760?64:34,space=rect.height-top;
+      bubbles=bubbleEls.map((el,i)=>{
+        const old=bubbles[i],size=Math.max(34,base*Number(el.dataset.size));
+        el.style.width=el.style.height=size+'px';
+        const ax=rect.width*Number(el.dataset.x),ay=top+space*Number(el.dataset.y);
+        return{
+          el,r:size*Number(el.dataset.collision||.19),half:size/2,ax,ay,
+          main:el.dataset.main==='true',
+          x:reset||!old?ax:ax+(old.x-old.ax),
+          y:reset||!old?ay:ay+(old.y-old.ay),
+          vx:old?.vx??0,vy:old?.vy??0,
+          baseRot:Number(el.dataset.baseRot),amp:Number(el.dataset.amp),
+          period:Number(el.dataset.period),phase:Number(el.dataset.phase),
+          tilt:0
+        };
+      });
+    }
+    setBubbleBounds(true);
+    addEventListener('resize',()=>setBubbleBounds(false));
+    hero.addEventListener('pointermove',e=>{
+      const rect=hero.getBoundingClientRect();
+      pointer.x=e.clientX-rect.left;pointer.y=e.clientY-rect.top;pointer.active=true;
+    });
+    hero.addEventListener('pointerleave',()=>pointer.active=false);
+
+    function animate(now){
+      const rect=hero.getBoundingClientRect(),dt=Math.min(2,(now-last)/16.67);last=now;
+      if(!reduced){
+        for(const b of bubbles){
+          // Pointer movement is temporary: a damped spring restores the exact cover layout.
+          b.vx+=(b.ax-b.x)*.0065*dt;
+          b.vy+=(b.ay-b.y)*.0065*dt;
+          if(pointer.active){
+            const dx=b.x-pointer.x,dy=b.y-pointer.y,dist=Math.hypot(dx,dy)||1,range=b.r+Math.min(150,rect.width*.1);
+            if(dist<range){
+              const force=(1-dist/range)*.62;
+              b.vx+=dx/dist*force;b.vy+=dy/dist*force;
+            }
+          }
+          b.x+=b.vx*dt;b.y+=b.vy*dt;
+          const speed=Math.hypot(b.vx,b.vy),max=1.1;
+          if(speed>max){b.vx=b.vx/speed*max;b.vy=b.vy/speed*max}
+          b.vx*=.955;b.vy*=.955;
+        }
+        const main=bubbles.filter(b=>b.main);
+        for(let pass=0;pass<3;pass++)for(let i=0;i<main.length;i++)for(let j=i+1;j<main.length;j++){
+          const a=main[i],b=main[j],dx=b.x-a.x,dy=b.y-a.y,dist=Math.hypot(dx,dy)||1,min=a.r+b.r;
+          if(dist<min){
+            const nx=dx/dist,ny=dy/dist,overlap=(min-dist)/2;
+            a.x-=nx*overlap;a.y-=ny*overlap;b.x+=nx*overlap;b.y+=ny*overlap;
+            const relative=(b.vx-a.vx)*nx+(b.vy-a.vy)*ny;
+            if(relative<0){
+              const impulse=-relative*.42;
+              a.vx-=nx*impulse;a.vy-=ny*impulse;b.vx+=nx*impulse;b.vy+=ny*impulse;
+            }
+          }
+        }
+      }
+      const seconds=now/1000;
+      for(const b of bubbles){
+        const idle=reduced?0:Math.sin(seconds*Math.PI*2/b.period+b.phase)*b.amp;
+        const angle=b.baseRot+idle;
+        const breath=reduced?0:Math.sin(seconds*Math.PI*2/(b.period*1.45)+b.phase);
+        const driftX=breath*Math.min(18,b.half*.055);
+        const driftY=Math.cos(seconds*Math.PI*2/(b.period*1.7)+b.phase)*Math.min(14,b.half*.042);
+        const scale=1+breath*.035;
+        b.el.style.transform=`translate3d(${b.x-b.half+driftX}px,${b.y-b.half+driftY}px,0) rotate(${angle}deg) scale(${scale})`;
+      }
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    const footer=document.querySelector('#contact'),footerMoonEls=[...document.querySelectorAll('.footer-moon')];
+    const footerPointer={x:-9999,y:-9999,active:false};
+    let footerMoons=[],footerLast=performance.now();
+
+    function setFooterMoonBounds(reset=false){
+      const rect=footer.getBoundingClientRect(),base=Math.min(rect.width,rect.height*1.06);
+      footerMoons=footerMoonEls.map((el,i)=>{
+        const old=footerMoons[i],size=Math.max(120,base*Number(el.dataset.size));
+        el.style.width=el.style.height=size+'px';
+        const ax=rect.width*Number(el.dataset.x),ay=rect.height*Number(el.dataset.y);
+        return{
+          el,r:size*Number(el.dataset.collision||.42),half:size/2,ax,ay,
+          x:reset||!old?ax:ax+(old.x-old.ax),
+          y:reset||!old?ay:ay+(old.y-old.ay),
+          vx:old?.vx??0,vy:old?.vy??0,
+          baseRot:Number(el.dataset.baseRot),amp:Number(el.dataset.amp),
+          period:Number(el.dataset.period),phase:Number(el.dataset.phase)
+        };
+      });
+    }
+    setFooterMoonBounds(true);
+    addEventListener('resize',()=>setFooterMoonBounds(false));
+    footer.addEventListener('pointermove',e=>{
+      const rect=footer.getBoundingClientRect();
+      footerPointer.x=e.clientX-rect.left;footerPointer.y=e.clientY-rect.top;footerPointer.active=true;
+    });
+    footer.addEventListener('pointerleave',()=>footerPointer.active=false);
+
+    function animateFooterMoons(now){
+      const dt=Math.min(2,(now-footerLast)/16.67);footerLast=now;
+      if(!reduced){
+        for(const moon of footerMoons){
+          moon.vx+=(moon.ax-moon.x)*.0075*dt;
+          moon.vy+=(moon.ay-moon.y)*.0075*dt;
+          if(footerPointer.active){
+            const dx=moon.x-footerPointer.x,dy=moon.y-footerPointer.y,dist=Math.hypot(dx,dy)||1,range=moon.r+120;
+            if(dist<range){
+              const force=(1-dist/range)*.82;
+              moon.vx+=dx/dist*force;moon.vy+=dy/dist*force;
+            }
+          }
+        }
+        for(let i=0;i<footerMoons.length;i++){
+          for(let j=i+1;j<footerMoons.length;j++){
+            const a=footerMoons[i],b=footerMoons[j],dx=b.x-a.x,dy=b.y-a.y,dist=Math.hypot(dx,dy)||1,min=a.r+b.r+18;
+            if(dist<min){
+              const push=(min-dist)*.016;
+              a.vx-=dx/dist*push;b.vx+=dx/dist*push;
+              a.vy-=dy/dist*push;b.vy+=dy/dist*push;
+            }
+          }
+        }
+        for(const moon of footerMoons){
+          moon.vx*=.9;moon.vy*=.9;moon.x+=moon.vx*dt;moon.y+=moon.vy*dt;
+          const t=now/1000,driftX=Math.sin(t/moon.period+moon.phase)*22,driftY=Math.cos(t/(moon.period*1.15)+moon.phase)*18;
+          const angle=moon.baseRot+Math.sin(t/moon.period+moon.phase)*moon.amp;
+          const scale=1+Math.sin(t/(moon.period*.78)+moon.phase)*.035;
+          moon.el.style.transform=`translate3d(${moon.x-moon.half+driftX}px,${moon.y-moon.half+driftY}px,0) rotate(${angle}deg) scale(${scale})`;
+        }
+      }else{
+        for(const moon of footerMoons) moon.el.style.transform=`translate3d(${moon.ax-moon.half}px,${moon.ay-moon.half}px,0) rotate(${moon.baseRot}deg)`;
+      }
+      requestAnimationFrame(animateFooterMoons);
+    }
+    requestAnimationFrame(animateFooterMoons);
+
+    document.querySelectorAll('[data-project-transition]').forEach(link=>{
+      const project=link.closest('.project');
+      const cover=project?.querySelector('.project-visual img');
+      link.addEventListener('click',event=>{
+        if(!cover||reduced||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0||document.body.classList.contains('project-leaving'))return;
+        event.preventDefault();
+        const visual=cover.closest('.project-visual');
+        const frame=visual.getBoundingClientRect();
+        const band=frame.height*.08;
+        const stage=document.createElement('span');
+        const clone=cover.cloneNode();
+        stage.className='project-transition-stage';
+        clone.className='project-transition-cover';
+        Object.assign(clone.style,{
+          top:`${frame.top+band}px`,
+          left:`${frame.left}px`,
+          width:`${frame.width}px`,
+          height:`${frame.height-band*2}px`,
+          borderRadius:'10px'
+        });
+        document.body.append(stage,clone);
+        document.body.classList.add('project-leaving');
+        requestAnimationFrame(()=>requestAnimationFrame(()=>{
+          stage.classList.add('active');
+          const targetGutter=Math.min(52,Math.max(14,innerWidth*.03));
+          const targetTop=Math.min(28,Math.max(14,innerWidth*.018));
+          const targetWidth=innerWidth-targetGutter*2;
+          clone.style.top=`${targetTop}px`;
+          clone.style.left=`${targetGutter}px`;
+          clone.style.width=`${targetWidth}px`;
+          clone.style.height=`${targetWidth*9/16}px`;
+          clone.style.borderRadius='10px';
+        }));
+        setTimeout(()=>clone.style.opacity='0',610);
+        setTimeout(()=>{
+          try{sessionStorage.setItem(`${link.dataset.projectTransition}-detail-enter`,'1')}catch(error){}
+          location.href=link.href;
+        },790);
+      });
+    });
+  </script>
+</body>
+</html>
