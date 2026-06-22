@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -14,8 +14,10 @@
     .brand{font-weight:700;letter-spacing:.08em}.links{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}.links a{border-bottom:1px solid transparent}.links a:hover{border-color:currentColor}
     .menu{display:none;border:0;background:none;padding:10px 0;letter-spacing:.12em}
     .hero{position:relative;width:100%;height:auto;min-height:0;aspect-ratio:16/9;overflow:hidden;background:#f9f8fd;isolation:isolate;padding-top:34px}
+    .hero picture{display:block;width:100%;height:100%}
     .hero-base{display:block;width:100%;height:100%;object-fit:contain}
     .hero-bubble{position:absolute;z-index:1;left:0;top:0;width:100px;height:100px;object-fit:contain;pointer-events:none;user-select:none;will-change:transform}
+    .hero-mobile-copy,.hero-mobile-contact{display:none}
     .meta{font-size:12px;letter-spacing:.13em;text-transform:uppercase}
     .resume-transition{height:clamp(90px,7vw,130px);background:#f9f8fd}
     .resume{position:relative;overflow:hidden;background:#f7f7fb;border-bottom:1px solid var(--line)}.resume>img{display:block;width:100%;height:auto}.resume-mobile{display:none}
@@ -102,7 +104,7 @@
     a:focus-visible,button:focus-visible{outline:3px solid #315efb;outline-offset:5px}
     @media(max-width:760px){
       .nav{padding:14px 20px}.menu{display:block}.links{position:fixed;inset:0;background:#f8f8fc;display:none;flex-direction:column;justify-content:center;padding:28px;font-size:clamp(38px,13vw,64px);line-height:1.35}.links.open{display:flex}.menu{position:relative;z-index:11}
-      .hero{height:auto;min-height:0;padding-top:64px;aspect-ratio:16/9}.hero-base{height:100%;object-fit:contain}
+      .hero{height:2200px;min-height:100svh;padding-top:0;aspect-ratio:auto}.hero picture{display:none}.hero-bubble{display:block}.hero-mobile-copy{position:absolute;z-index:2;left:8.6%;right:0;bottom:12%;display:block}.hero-years{margin:0 0 58px;font-size:37px;line-height:1.16;letter-spacing:.12em}.hero-mark{width:52px;margin:0 0 960px 27px}.hero-mobile-copy h1{margin:0 0 24px;font-size:clamp(76px,18vw,132px);line-height:.88;letter-spacing:.15em;font-weight:800}.hero-mobile-copy .hero-sub{margin:0 0 20px;font-size:27px;letter-spacing:.24em}.hero-mobile-copy .hero-rule{width:58%;height:1px;margin:0 0 33px;background:var(--line)}.hero-mobile-copy h2{margin:0 0 44px;font-size:34px;letter-spacing:.08em}.hero-objective{margin:0;font-size:22px;line-height:1.8;color:#222}.hero-objective span{display:block;margin-top:22px;color:#555}.hero-mobile-contact{position:absolute;z-index:3;left:0;right:0;bottom:18px;display:flex;align-items:center;justify-content:center;gap:18px;padding:14px 18px;border-top:1px solid var(--line);background:#f8f8fccc;backdrop-filter:blur(8px)}.hero-mobile-contact a{display:inline-flex;align-items:center;gap:8px;color:#33323a;font-size:16px;letter-spacing:.04em}.hero-mobile-contact a+a{border-left:1px solid rgba(17,17,17,.18);padding-left:18px}.hero-mobile-contact svg{width:22px;height:22px;stroke:currentColor;stroke-width:2.1;fill:none;stroke-linecap:round;stroke-linejoin:round}
       .resume-transition{height:70px}.resume>img{display:none}.resume-mobile{position:relative;z-index:1;display:grid}.resume-mobile img{display:block;width:100%;height:auto}
       .section-title{padding-top:80px}.project{display:flex;min-height:0;flex-direction:column;padding:72px 0 86px}.project-copy,.project:nth-of-type(even) .project-copy,#project-5 .project-copy{width:100%;height:auto;min-height:0;padding:0}.project-copy h3{font-size:clamp(27px,8vw,36px)}.project-visual,.project:nth-of-type(even) .project-visual,#project-5 .project-visual{order:2;width:100%;margin-top:42px;aspect-ratio:3/2}.project-description,#project-5 .project-description{min-height:0;margin-top:34px;margin-bottom:26px;font-size:14px}.project-link{min-width:240px;margin-top:0}
       .project-moon.edge{max-width:155px;opacity:.36}.project-moon.soft{max-width:90px;opacity:.1}
@@ -123,11 +125,25 @@
   </header>
 
   <section class="hero" id="top" aria-label="作品集封面">
-    <img class="hero-base" src="assets/portfolio-cover-clean.png" alt="段皓凡 2024 至 2026 工业设计作品集封面">
+    <picture><img class="hero-base" src="assets/portfolio-cover-clean.png" alt="段皓凡 2024 至 2026 工业设计作品集封面"></picture>
     <img class="hero-bubble" src="assets/hero-crescent-orange.png?v=3" alt="" data-main="true" data-x=".823" data-y=".258" data-size=".456" data-base-rot="150" data-amp="15" data-period="4.1" data-phase="0" data-collision=".43">
     <img class="hero-bubble" src="assets/hero-crescent-spectrum.png?v=3" alt="" data-main="true" data-x=".680" data-y=".535" data-size=".394" data-base-rot="180" data-amp="15" data-period="4.5" data-phase="3.14159" data-collision=".43">
     <img class="hero-bubble" src="assets/hero-crescent-aqua-original.png?v=4" alt="" data-main="true" data-x=".832" data-y=".680" data-size=".32" data-base-rot="30" data-amp="15" data-period="3.9" data-phase="1.5708" data-collision=".42">
     <img class="hero-bubble" src="assets/hero-crescent-blue.png?v=3" alt="" data-x=".600" data-y=".113" data-size=".104" data-base-rot="90" data-amp="5" data-period="9.4" data-phase="4.7124">
+    <div class="hero-mobile-copy" aria-hidden="true">
+      <p class="hero-years">2024<br>丨<br>2026</p>
+      <img class="hero-mark" src="assets/project-crescent-1.png?v=2" alt="">
+      <h1>PORTFILIO</h1>
+      <p class="hero-sub">INDUSTRIAL DESIGN</p>
+      <div class="hero-rule"></div>
+      <h2>求职人:段皓凡</h2>
+      <p class="hero-objective">Internship Objective<span>产品经理实习生<br>CMF/ID实习生</span></p>
+    </div>
+    <div class="hero-mobile-contact" aria-hidden="true">
+      <a href="weixin://dl/chat?dhf15147168088"><svg viewBox="0 0 24 24"><path d="M10.2 6.5c-4 0-7.2 2.5-7.2 5.7 0 1.8 1 3.4 2.7 4.4l-.5 2 2.3-1.2c.8.3 1.7.5 2.7.5 4 0 7.2-2.5 7.2-5.7s-3.2-5.7-7.2-5.7Z"/><path d="M14.2 10.4c3.3.2 5.8 2.3 5.8 5 0 1.5-.8 2.8-2.2 3.7l.4 1.7-1.9-.9c-.7.2-1.4.3-2.1.3-2.8 0-5.2-1.6-5.8-3.8"/><path d="M7.6 11.2h.01M12.6 11.2h.01M13.6 15.2h.01M17.3 15.2h.01"/></svg>dhf15147168088</a>
+      <a href="tel:15147168088"><svg viewBox="0 0 24 24"><path d="M7.2 4.2 9.6 3l3 5.2-2 1.4c1.1 2.2 2.7 3.8 4.9 4.9l1.4-2 5.2 3-1.2 2.4c-.7 1.5-2.3 2.3-3.9 1.8-6-1.8-10.7-6.5-12.5-12.5-.5-1.6.3-3.2 1.7-4Z"/><path d="M15.5 4.5a4 4 0 0 1 4 4M15.5 1.8a6.7 6.7 0 0 1 6.7 6.7"/></svg>15147168088</a>
+      <a href="mailto:decaldk@163.com"><svg viewBox="0 0 24 24"><path d="M3 7.5 12 2l9 5.5V20H3V7.5Z"/><path d="m3 8 9 6 9-6"/></svg>decaldk@163.com</a>
+    </div>
   </section>
 
   <div class="resume-transition" aria-hidden="true"></div>
@@ -238,18 +254,27 @@
 
     function setBubbleBounds(reset=false){
       const rect=hero.getBoundingClientRect(),base=rect.height;
-      const top=innerWidth<760?64:34,space=rect.height-top;
+      const mobile=innerWidth<760;
+      const mobileLayout=[
+        {x:.84,y:.31,size:.38,rot:150,collision:.43},
+        {x:.42,y:.49,size:.33,rot:180,collision:.43},
+        {x:.82,y:.56,size:.27,rot:30,collision:.42},
+        {x:.37,y:.09,size:.12,rot:90,collision:.2}
+      ];
+      const top=mobile?0:34,space=rect.height-top;
       bubbles=bubbleEls.map((el,i)=>{
-        const old=bubbles[i],size=Math.max(34,base*Number(el.dataset.size));
+        const layout=mobile?mobileLayout[i]:null;
+        const sizeRatio=layout?.size??Number(el.dataset.size);
+        const old=bubbles[i],size=Math.max(34,base*sizeRatio);
         el.style.width=el.style.height=size+'px';
-        const ax=rect.width*Number(el.dataset.x),ay=top+space*Number(el.dataset.y);
+        const ax=rect.width*(layout?.x??Number(el.dataset.x)),ay=top+space*(layout?.y??Number(el.dataset.y));
         return{
-          el,r:size*Number(el.dataset.collision||.19),half:size/2,ax,ay,
+          el,r:size*(layout?.collision??Number(el.dataset.collision||.19)),half:size/2,ax,ay,
           main:el.dataset.main==='true',
           x:reset||!old?ax:ax+(old.x-old.ax),
           y:reset||!old?ay:ay+(old.y-old.ay),
           vx:old?.vx??0,vy:old?.vy??0,
-          baseRot:Number(el.dataset.baseRot),amp:Number(el.dataset.amp),
+          baseRot:layout?.rot??Number(el.dataset.baseRot),amp:Number(el.dataset.amp),
           period:Number(el.dataset.period),phase:Number(el.dataset.phase),
           tilt:0
         };
