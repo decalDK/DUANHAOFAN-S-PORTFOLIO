@@ -103,9 +103,9 @@
     .footer-moon.pink{--size:clamp(160px,22vw,330px);opacity:.86}
     a:focus-visible,button:focus-visible{outline:3px solid #315efb;outline-offset:5px}
     @media(max-width:760px){
-      .nav{padding:14px 20px}.menu{display:block}.links{position:fixed;inset:0;background:#f8f8fc;display:none;flex-direction:column;justify-content:center;padding:28px;font-size:clamp(38px,13vw,64px);line-height:1.35}.links.open{display:flex}.menu{position:relative;z-index:11}
+      body.menu-open::before{content:"";position:fixed;inset:0;z-index:8;background:rgba(0,0,0,.62);backdrop-filter:blur(2px)}.nav{padding:14px 20px}.menu{display:block;position:relative;z-index:12}.links{position:fixed;z-index:11;left:0;right:0;top:64px;display:flex;flex-direction:column;gap:0;padding:16px 32px 28px;background:#f8f8fc;border-top:1px solid #d7d7dc;border-radius:0 0 22px 22px;box-shadow:0 24px 60px rgba(0,0,0,.14);font-size:22px;line-height:1.2;letter-spacing:.08em;transform:translateY(-118%);opacity:0;pointer-events:none;transition:transform .34s ease,opacity .24s ease}.links.open{transform:translateY(0);opacity:1;pointer-events:auto}.links a{padding:18px 0;border-bottom:1px solid rgba(17,17,17,.72)}
       .hero{height:calc(100svh - 64px);min-height:620px;max-height:920px;padding-top:0;aspect-ratio:auto}.hero picture{display:none}.hero-bubble{display:block}.hero-mobile-copy{position:absolute;z-index:2;inset:0 0 0 8.2%;display:block}.hero-years{position:absolute;top:9.2%;left:0;margin:0;font-size:clamp(25px,7.4vw,34px);line-height:1.15;letter-spacing:.11em}.hero-mark{display:none}.hero-mobile-copy h1{position:absolute;top:58.8%;left:0;margin:0;font-size:clamp(40px,11.4vw,54px);line-height:.9;letter-spacing:.075em;font-weight:800;white-space:nowrap}.hero-mobile-copy .hero-sub{position:absolute;top:66.2%;left:0;margin:0;font-size:clamp(17px,4.8vw,24px);letter-spacing:.2em;white-space:nowrap}.hero-mobile-copy .hero-rule{position:absolute;top:71.2%;left:0;width:52%;height:1px;margin:0;background:var(--line)}.hero-mobile-copy h2{position:absolute;top:73.5%;left:0;margin:0;font-size:clamp(23px,6.4vw,31px);letter-spacing:.08em}.hero-objective{position:absolute;top:79.2%;left:0;margin:0;font-size:clamp(14px,4vw,18px);line-height:1.42;color:#222}.hero-objective span{display:block;margin-top:10px;color:#555}.hero-mobile-contact{position:absolute;z-index:3;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:8px;padding:7px 7px 8px;border-top:1px solid var(--line);background:#f8f8fce8;backdrop-filter:blur(8px)}.hero-mobile-contact a{display:inline-flex;align-items:center;gap:4px;color:#33323a;font-size:clamp(9px,2.85vw,13px);letter-spacing:.02em;white-space:nowrap}.hero-mobile-contact a+a{border-left:1px solid rgba(17,17,17,.18);padding-left:8px}.hero-mobile-contact svg{width:17px;height:17px;stroke:currentColor;stroke-width:2.1;fill:none;stroke-linecap:round;stroke-linejoin:round}
-      .resume-transition{height:70px}.resume>img{display:none}.resume-mobile{position:relative;z-index:1;display:grid}.resume-mobile img{display:block;width:100%;height:auto}
+      .resume-transition{height:70px}.resume>img{display:none}.resume-mobile{position:relative;z-index:1;display:block;overflow:hidden;padding:78px 8.2% 92px;background:#f8f8fc;color:#111}.resume-mobile *{box-sizing:border-box}.resume-mobile img{display:block}.resume-moon{position:absolute;z-index:0;width:46vw;height:46vw;object-fit:contain;pointer-events:none;opacity:.72;filter:saturate(.95)}.resume-moon.one{right:-17vw;top:20vw;transform:rotate(150deg)}.resume-moon.two{right:2vw;top:98vw;width:36vw;height:36vw;transform:rotate(178deg);opacity:.54}.resume-moon.three{left:-21vw;bottom:20vw;width:58vw;height:58vw;transform:rotate(24deg);opacity:.42}.resume-card,.resume-block{position:relative;z-index:1}.resume-card{margin-bottom:48px}.resume-name{margin:0;font-size:34px;line-height:1;font-weight:800;letter-spacing:.12em}.resume-en{margin:8px 0 18px;color:#777;letter-spacing:.22em;font-size:13px}.resume-tags,.resume-skills{display:flex;flex-wrap:wrap;gap:8px}.resume-tags span,.resume-skills span,.resume-course span{display:inline-flex;align-items:center;border:1px solid #a9c7ff;border-radius:8px;padding:3px 10px;background:#f3f7ff;font-size:13px;line-height:1.15}.resume-block{margin-top:50px}.resume-block h3{display:flex;align-items:center;gap:10px;margin:0 0 24px;font-size:24px;letter-spacing:.06em}.resume-block h3 small{font-size:12px;font-weight:400;letter-spacing:.08em;color:#555;text-transform:uppercase}.resume-dot{width:18px;height:18px;border-radius:50%;background:linear-gradient(120deg,#f45cc5,#48c6f2);box-shadow:0 4px 12px rgba(80,150,255,.25)}.resume-states{list-style:none;margin:0;padding:0;display:grid;gap:18px;font-size:18px}.resume-states li{position:relative;padding-left:20px}.resume-states li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:linear-gradient(120deg,#44c9ff,#8e7cff)}.resume-skill-row{display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:start;margin-top:14px;font-size:17px}.resume-skill-row strong{line-height:1.8}.resume-timeline{display:grid;gap:26px;border-left:1px solid #bbb;padding-left:24px}.resume-item{position:relative}.resume-item::before{content:"";position:absolute;left:-29px;top:5px;width:8px;height:8px;border-radius:50%;background:#333}.resume-time{font-size:14px;letter-spacing:.05em}.resume-item h4{margin:8px 0 8px;font-size:19px}.resume-item p{margin:0;color:#333;font-size:15px;line-height:1.65}.resume-course{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.resume-grid{display:grid;gap:24px}.resume-project-item{border-left:1px solid #bbb;padding-left:24px;position:relative}.resume-project-item::before{content:"";position:absolute;left:-5px;top:5px;width:8px;height:8px;border-radius:50%;background:#333}
       .section-title{padding-top:80px}.project{display:flex;min-height:0;flex-direction:column;padding:72px 0 86px}.project-copy,.project:nth-of-type(even) .project-copy,#project-5 .project-copy{width:100%;height:auto;min-height:0;padding:0}.project-copy h3{font-size:clamp(27px,8vw,36px)}.project-visual,.project:nth-of-type(even) .project-visual,#project-5 .project-visual{order:2;width:100%;margin-top:42px;aspect-ratio:3/2}.project-description,#project-5 .project-description{min-height:0;margin-top:34px;margin-bottom:26px;font-size:14px}.project-link{min-width:240px;margin-top:0}
       .project-moon.edge{max-width:155px;opacity:.36}.project-moon.soft{max-width:90px;opacity:.1}
       #project-1 .edge,#project-3 .edge,#project-5 .edge{right:-60px;left:auto}#project-2 .edge,#project-4 .edge{left:-60px;right:auto}
@@ -150,9 +150,99 @@
   <section class="resume" id="resume" aria-label="个人简历">
     <img src="assets/resume-decorated.png?v=2" alt="段皓凡个人简历">
     <div class="resume-mobile">
-      <img src="assets/resume-profile.jpg" alt="段皓凡个人信息与技能">
-      <img src="assets/resume-education.jpg" alt="段皓凡教育与学校任职经历">
-      <img src="assets/resume-projects.jpg" alt="段皓凡项目经历">
+      <img class="resume-moon one" src="assets/hero-crescent-orange.png?v=3" alt="">
+      <img class="resume-moon two" src="assets/hero-crescent-spectrum.png?v=3" alt="">
+      <img class="resume-moon three" src="assets/hero-crescent-aqua-original.png?v=4" alt="">
+      <section class="resume-card" aria-label="个人信息">
+        <h2 class="resume-name">段皓凡</h2>
+        <p class="resume-en">Duan Haofan</p>
+        <div class="resume-tags"><span>CMF设计</span><span>产品经理</span><span>用户研究</span></div>
+      </section>
+      <section class="resume-block">
+        <h3>STATES:</h3>
+        <ul class="resume-states">
+          <li>现居南京，可异地实习</li>
+          <li>实习时长 3-5 个月</li>
+          <li>随时到岗</li>
+        </ul>
+      </section>
+      <section class="resume-block">
+        <h3>SKILLS:</h3>
+        <div class="resume-skill-row"><strong>设计类：</strong><div class="resume-skills"><span>Rhino</span><span>UG</span><span>Blender</span><span>C4D</span><span>Keyshot</span><span>PS</span><span>AI</span><span>Figma</span></div></div>
+        <div class="resume-skill-row"><strong>项目类：</strong><div class="resume-skills"><span>Miro</span><span>Xmind</span><span>Pixso</span></div></div>
+        <div class="resume-skill-row"><strong>AI类：</strong><div class="resume-skills"><span>Midjourney</span><span>vibe code</span></div></div>
+      </section>
+      <section class="resume-block">
+        <h3><span class="resume-dot"></span>学习经历 <small>Education</small></h3>
+        <div class="resume-timeline">
+          <article class="resume-item">
+            <span class="resume-time">2024.09 - 2027.04</span>
+            <h4>南京理工大学 · 研究生</h4>
+            <p>工业设计工程专业</p>
+            <div class="resume-course"><span>产品工程技术(95)</span><span>设计管理(90)</span><span>设计艺术研究(90)</span></div>
+          </article>
+          <article class="resume-item">
+            <span class="resume-time">2020.09 - 2024.06</span>
+            <h4>南京理工大学 · 本科生</h4>
+            <p>工业设计</p>
+            <div class="resume-course"><span>产品结构设计(97)</span><span>用户研究(91)</span><span>手绘(92)</span></div>
+          </article>
+        </div>
+      </section>
+      <section class="resume-block">
+        <h3><span class="resume-dot"></span>学校任职经历 <small>Campus Leadership</small></h3>
+        <div class="resume-grid">
+          <article class="resume-item">
+            <span class="resume-time">2020.09 - 2021.09</span>
+            <h4>工业设计班级班长</h4>
+            <p>统筹班级日常事务，组织相关活动，保障班级有序运转，学年末荣获优秀班集体。</p>
+          </article>
+          <article class="resume-item">
+            <span class="resume-time">2022.09 - 2023.09</span>
+            <h4>党支部社团社长</h4>
+            <p>带领党支部成员定期举行相关活动，通过活动组合向新生宣传学校文化，社团获评优秀社团。</p>
+          </article>
+          <article class="resume-item">
+            <span class="resume-time">2022.09 - 2023.09</span>
+            <h4>2022级新生辅导员助理</h4>
+            <p>协助处理学生工作，负责信息传达与整理，带领新生获得校级活动奖项。</p>
+          </article>
+          <article class="resume-item">
+            <span class="resume-time">2023.09 - 2024.06</span>
+            <h4>本科生工业设计党支部副书记</h4>
+            <p>协助开展党务相关工作，配合组织党建活动，个人获评优秀共产党员。</p>
+          </article>
+        </div>
+      </section>
+      <section class="resume-block">
+        <h3><span class="resume-dot"></span>项目经验 <small>Project Experience</small></h3>
+        <div class="resume-grid">
+          <article class="resume-project-item">
+            <span class="resume-time">2023.10 - 2024.01</span>
+            <h4>广州汽车集团校企合作项目</h4>
+            <div class="resume-tags"><span>顶层设计</span><span>项目管理</span></div>
+            <p>统筹子课题世界观与商业逻辑，负责项目汇报视频流程、素材整合与视觉包装落地。</p>
+          </article>
+          <article class="resume-project-item">
+            <span class="resume-time">2024.04 - 2024.06</span>
+            <h4>EPED实验室纯水机设计</h4>
+            <div class="resume-tags"><span>结构设计</span><span>动画设计</span></div>
+            <p>完成纯水机整体结构设计与产品演示动画，支持方案汇报与外观结构沟通。</p>
+          </article>
+          <article class="resume-project-item">
+            <span class="resume-time">2025.06 - 2026.03</span>
+            <h4>众萱森灯具设计项目</h4>
+            <div class="resume-tags"><span>造型设计</span><span>结构设计</span></div>
+            <p>完成小路灯、大路灯及闸道灯的造型与结构需求设计，兼顾安装适配与量产可行性。</p>
+          </article>
+          <article class="resume-project-item">
+            <span class="resume-time">2025.07 - 2026.04</span>
+            <h4>南理工国家实验室合作项目</h4>
+            <div class="resume-tags"><span>造型设计</span><span>结构设计</span></div>
+            <p>参与综合性能试验台外观设计与钣金结构优化，提升设备工业美感与操作体验。</p>
+          </article>
+        </div>
+      </section>
     </div>
   </section>
 
@@ -243,8 +333,14 @@
   <script>
     const nav=document.querySelector('#nav'),menu=document.querySelector('#menu'),links=document.querySelector('#links');
     addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
-    menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.textContent=open?'关闭':'菜单';menu.setAttribute('aria-expanded',open);document.body.classList.toggle('menu-open',open)});
-    links.addEventListener('click',()=>{links.classList.remove('open');menu.textContent='菜单';menu.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open')});
+    function closeMenu(){
+      links.classList.remove('open');
+      menu.setAttribute('aria-expanded','false');
+      document.body.classList.remove('menu-open');
+    }
+    menu.addEventListener('click',()=>{const open=!links.classList.contains('open');links.classList.toggle('open',open);menu.setAttribute('aria-expanded',open);document.body.classList.toggle('menu-open',open)});
+    links.addEventListener('click',closeMenu);
+    document.addEventListener('click',event=>{if(document.body.classList.contains('menu-open')&&!nav.contains(event.target))closeMenu()});
 
     const hero=document.querySelector('.hero'),bubbleEls=[...document.querySelectorAll('.hero-bubble')];
     const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
