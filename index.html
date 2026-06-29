@@ -87,6 +87,40 @@
     .project-description{max-width:27ch;min-height:4.95em;margin:clamp(32px,4vw,58px) 0 24px;color:var(--muted);font-size:clamp(13px,1vw,15px);line-height:1.65}
     .project-link{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-width:min(100%,290px);min-height:48px;margin-top:auto;padding:0 24px;border-radius:999px;background:var(--button-grad);color:#111;font-size:13px;font-weight:700;letter-spacing:.08em;box-shadow:inset 0 1px rgba(255,255,255,.55),0 10px 24px rgba(87,78,121,.08);transition:transform .25s,filter .25s}
     .project-link span{font-size:20px;transition:transform .25s}.project-link:hover{filter:saturate(1.08) brightness(.98);transform:translateY(-2px)}.project-link:hover span{transform:translateX(4px)}.project-link:active{transform:translateY(0)}
+    .quick-look{--quick-card-w:clamp(340px,31vw,500px);position:relative;margin:clamp(82px,9vw,140px) calc(var(--g)*-1) 0;padding:clamp(52px,5.8vw,86px) 0 clamp(52px,5.8vw,86px);overflow:hidden;border-top:1px solid var(--line);background:#f8f8fc}
+    .quick-head{display:flex;align-items:end;justify-content:space-between;margin:0 var(--g) clamp(52px,5.8vw,86px);border-bottom:1px solid var(--line);padding-bottom:18px}
+    .quick-head h2{margin:0;font-size:clamp(34px,5.4vw,82px);line-height:.9;letter-spacing:-.045em}
+    .quick-rows{position:relative;display:grid;gap:0}
+    .quick-rows::before,.quick-rows::after{content:"";position:absolute;z-index:3;top:0;bottom:0;width:clamp(72px,10vw,180px);pointer-events:none}
+    .quick-rows::before{left:0;background:linear-gradient(90deg,#f8f8fc 0%,rgba(248,248,252,.86) 28%,rgba(248,248,252,0) 100%)}
+    .quick-rows::after{right:0;background:linear-gradient(270deg,#f8f8fc 0%,rgba(248,248,252,.86) 28%,rgba(248,248,252,0) 100%)}
+    .quick-row{overflow:visible}.quick-row.offset{margin-left:calc(var(--quick-card-w)*.3)}
+    .quick-track{display:flex;width:max-content;gap:clamp(14px,1.45vw,24px);will-change:transform;transform:translateX(0);transition:none}
+    .quick-card{display:grid;grid-template-rows:auto 1fr;gap:clamp(19px,1.8vw,30px);width:var(--quick-card-w);height:calc(var(--quick-card-w)*.735);border:0;border-radius:16px;background:#fff;box-shadow:0 16px 42px rgba(72,82,108,.10);padding:16px clamp(16px,1.7vw,24px) clamp(22px,2vw,34px);text-align:left;color:#111;cursor:pointer;transition:transform .28s cubic-bezier(.22,1,.36,1),box-shadow .28s,filter .28s}
+    .quick-card:hover{transform:scale(1.035);box-shadow:0 22px 58px rgba(72,82,108,.16);filter:saturate(1.02)}
+    .quick-thumb{display:block;width:100%;aspect-ratio:16/9;border-radius:12px;object-fit:cover;background:linear-gradient(120deg,#dfeaff,#f8e2ef)}
+    .quick-card-bottom{display:grid;grid-template-columns:minmax(0,1fr) max-content;align-items:start;gap:clamp(12px,1.5vw,24px)}
+    .quick-card h3{align-self:start;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;font-size:clamp(18px,1.42vw,24px);line-height:1.08;letter-spacing:-.035em}
+    .quick-tags{display:flex;flex-wrap:wrap;gap:clamp(8px,.9vw,16px);margin-top:0}
+    .quick-tags span{padding:5px 10px;border:1px solid #a9c7ff;border-radius:9px;background:#f4f8ff;font-size:clamp(9px,.64vw,11px);line-height:1;white-space:nowrap}
+    .quick-card .quick-tags{flex-wrap:nowrap;justify-content:flex-end;max-width:none;margin-top:0}
+    .quick-more{display:none}
+    body.quick-open{overflow:hidden}
+    .quick-overlay{position:fixed;z-index:9990;inset:0;display:none;align-items:center;justify-content:center;padding:clamp(14px,2vw,28px);background:rgba(25,25,30,.48);backdrop-filter:blur(8px);opacity:0;transition:opacity .25s ease}
+    .quick-overlay.open{display:flex;opacity:1}
+    .quick-modal{position:relative;width:min(1240px,94vw);max-height:94vh;overflow:hidden;border-radius:16px;background:#f8f8fc;box-shadow:0 26px 90px rgba(0,0,0,.22);padding:clamp(22px,2.2vw,34px);transform:scale(.965);transition:transform .28s cubic-bezier(.22,1,.36,1)}
+    .quick-overlay.open .quick-modal{transform:scale(1)}
+    .quick-hero{position:relative;overflow:hidden;border-radius:12px;background:#e9edf5}
+    .quick-nav-btn{position:absolute;z-index:2;top:50%;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:999px;background:rgba(248,248,252,.9);box-shadow:0 10px 26px rgba(20,24,36,.12);font-family:Arial,sans-serif;font-size:30px;font-weight:400;line-height:1;color:#111;cursor:pointer;transform:translateY(-50%);transition:transform .22s,background .22s}
+    .quick-nav-btn:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+    .quick-prev{left:clamp(12px,1.4vw,22px)}.quick-next{right:clamp(12px,1.4vw,22px)}
+    .quick-slide{display:none;width:100%;aspect-ratio:16/9;max-height:min(58vh,620px);object-fit:cover;border-radius:12px;background:#eef1f7}.quick-slide.active{display:block}
+    .quick-dots{display:flex;justify-content:center;gap:8px;margin:12px 0 0}.quick-dot{width:7px;height:7px;border:0;border-radius:999px;background:#c9c9cf;padding:0;cursor:pointer}.quick-dot.active{width:20px;background:#111}
+    .quick-detail{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 32px;align-items:start;margin-top:24px}
+    .quick-detail h3{position:relative;margin:0 0 34px;font-size:clamp(28px,2.8vw,46px);line-height:1.05;letter-spacing:-.055em}
+    .quick-detail h3::after{content:"";position:absolute;left:0;bottom:-22px;width:130px;height:1px;background:#9f9fa6}
+    .quick-detail .quick-tags{justify-content:flex-end;margin-top:0}
+    .quick-desc{grid-column:1/-1;margin:-6px 0 0;padding-top:0;border-top:0;color:#222;font-size:clamp(12px,.95vw,15px);line-height:1.65;letter-spacing:.04em}
     .project-transition-stage{position:fixed;z-index:9998;inset:0;background:#f8f8fc;opacity:0;pointer-events:none;transition:opacity .42s ease}
     .project-transition-stage.active{opacity:1}
     .project-transition-cover{position:fixed;z-index:9999;margin:0;object-fit:cover;pointer-events:none;box-shadow:0 18px 70px rgba(30,30,45,.1);transition:top .78s cubic-bezier(.22,1,.36,1),left .78s cubic-bezier(.22,1,.36,1),width .78s cubic-bezier(.22,1,.36,1),height .78s cubic-bezier(.22,1,.36,1),border-radius .78s cubic-bezier(.22,1,.36,1),opacity .2s ease}
@@ -110,16 +144,17 @@
       .project-moon.edge{max-width:155px;opacity:.36}.project-moon.soft{max-width:90px;opacity:.1}
       #project-1 .edge,#project-3 .edge,#project-5 .edge{right:-60px;left:auto}#project-2 .edge,#project-4 .edge{left:-60px;right:auto}
       #project-1 .soft{right:8%;top:60%}#project-2 .soft{left:7%;bottom:4%}#project-3 .soft{right:10%;bottom:5%}#project-4 .soft{left:9%;top:62%}#project-5 .soft{right:8%;bottom:8%}
+      .quick-look{--quick-card-w:100%;margin-top:72px;padding:56px 20px}.quick-rows::before,.quick-rows::after{display:none}.quick-head{align-items:flex-start;gap:14px;flex-direction:column;margin-left:0;margin-right:0;margin-bottom:56px}.quick-head h2{font-size:clamp(38px,14vw,62px)}.quick-rows{display:grid;grid-template-columns:1fr;gap:0}.quick-row,.quick-row.offset{margin-left:0}.quick-track{display:grid;width:100%;grid-template-columns:1fr;gap:16px;animation:none!important;transform:none!important;cursor:default}.quick-card{width:100%;min-width:0;height:auto;gap:16px;border-radius:14px;padding:12px 12px 18px}.quick-thumb{border-radius:10px}.quick-card-bottom{grid-template-columns:minmax(0,1fr) max-content;gap:8px}.quick-card h3{font-size:15px}.quick-card .quick-tags{flex-wrap:nowrap;max-width:none;gap:5px}.quick-tags span{padding:4px 7px;border-radius:7px;font-size:9px}.quick-modal{width:94vw;max-height:88vh;border-radius:14px;padding:14px}.quick-nav-btn{width:34px;height:34px;font-size:24px}.quick-prev{left:8px}.quick-next{right:8px}.quick-detail{display:block;margin-top:22px}.quick-detail h3{font-size:30px;margin-bottom:40px}.quick-detail .quick-tags{position:static;max-width:none;justify-content:flex-start}.quick-desc{margin-top:18px;font-size:14px}
       footer{min-height:680px;padding-top:96px}footer h2{font-size:clamp(34px,10vw,58px);margin-bottom:58px;white-space:normal}.contact-list{width:100%}.contact-list a{padding:17px 0;font-size:16px}.footer-moon.blue{--size:76vw}.footer-moon.pink{--size:44vw}.foot{gap:20px;flex-direction:column}
     }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.project-visual img,.nav{transition:none}.hero-bubble{will-change:auto}.project-moon,.footer-moon{animation:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.project-visual img,.nav{transition:none}.hero-bubble{will-change:auto}.project-moon,.footer-moon,.quick-track{animation:none}}
   </style>
 </head>
 <body>
   <header class="nav" id="nav">
     <a class="brand" href="#top">DUAN HAOFAN</a>
     <nav class="links" id="links" aria-label="主导航">
-      <a href="#top">首页</a><a href="#resume">简历</a><a href="#work">作品</a><a href="#contact">联系</a>
+      <a href="#top">首页</a><a href="#resume">简历</a><a href="#work">作品</a><a href="#quick-look">速览</a><a href="#contact">联系</a>
     </nav>
     <button class="menu" id="menu" aria-expanded="false" aria-controls="links">菜单</button>
   </header>
@@ -307,7 +342,26 @@
       <img class="project-moon soft" src="assets/project-crescent-5.png?v=2" alt="">
     </article>
 
+    <section class="quick-look" id="quick-look" aria-label="项目速览">
+      <div class="quick-head">
+        <h2>Quick Look</h2><span class="meta">Project Cards</span>
+      </div>
+      <div class="quick-rows" id="quickRows"></div>
+    </section>
+
   </main>
+
+  <div class="quick-overlay" id="quickOverlay" aria-hidden="true">
+    <article class="quick-modal" role="dialog" aria-modal="true" aria-labelledby="quickTitle">
+      <div class="quick-hero" id="quickHero"></div>
+      <div class="quick-dots" id="quickDots" aria-label="图片页码"></div>
+      <div class="quick-detail">
+        <h3 id="quickTitle"></h3>
+        <div class="quick-tags" id="quickModalTags"></div>
+        <p class="quick-desc" id="quickDesc"></p>
+      </div>
+    </article>
+  </div>
 
   <footer id="contact">
     <span class="meta">Let’s work together</span>
@@ -496,6 +550,127 @@
       requestAnimationFrame(animateFooterMoons);
     }
     requestAnimationFrame(animateFooterMoons);
+
+    const quickItems=[
+      {title:'南理实验室合作项目',tags:['实际项目','结构设计'],thumb:'assets/quicklook/Rectangle 289.png',slides:['assets/quicklook/Rectangle 289.png','assets/quicklook/Rectangle 290.png','assets/quicklook/Frame 278.png'],desc:'参与丝杠寿命试验台、高速直线导轨副综合性能试验台外观设计工作，统筹外观方案创作、钣金结构优化及项目对接沟通。设计过程以不干涉设备内部结构、不影响整机测试性能为前提，持续迭代外观造型与钣金分块结构，优化人机操作区域，提升设备整体工业质感与使用体验。同时独立完成配套油盒专项设计，完善润滑回收配套功能，补足设备原有功能缺陷，兼顾外观美观度、结构工艺可行性与设备实用性能。'},
+      {title:'个人胶枪重构设计',tags:['结构拆解','功能优化'],thumb:'assets/quicklook/Rectangle 292.png',slides:['assets/quicklook/Rectangle 292.png','assets/quicklook/Rectangle 293.png','assets/quicklook/Rectangle 294.png'],desc:'针对胶枪漏胶、出胶后残留拉丝等使用痛点开展优化设计。通过更换多款不同规格胶枪口对比测试，筛选适配方案改善漏胶、留丝问题；同步结合握持手感需求改良整机外观造型，贴合个人人手使用习惯。同时调整内部塑料零部件结构，在优化外观造型的基础上保障出胶、按压等核心功能稳定可靠，兼顾使用体验、外观美感与结构实用性。'},
+      {title:'众普森灯具设计',tags:['实际项目','形态设计'],thumb:'assets/quicklook/Rectangle 295.png',slides:['assets/quicklook/Rectangle 295.png','assets/quicklook/Rectangle 296.png'],desc:'分别对小路灯、大路灯及闸道灯三类产品的造型与结构进行需求设计，结合户外场景需求完成外观方案迭代与结构优化，兼顾产品美观性、安装适配性与量产可行性，形成完整的设计输出方案。'},
+      {title:'广汽概念车设计',tags:['外形设计'],thumb:'assets/quicklook/Rectangle 300.png',slides:['assets/quicklook/Rectangle 298.png','assets/quicklook/Rectangle 299.png','assets/quicklook/Rectangle 300.png'],desc:'“夜影”以当代青年的自我表达需求为设计内核，洞察都市年轻人奔波忙碌、渴望彰显个性的生活状态，将MPV车身打造为专属个性化展示载体，产品融合车载投影功能，既可以依托车身完成个性化图案投射以满足青年自我表达需求，同时兼顾投影观影、户外游戏等基础影音功能，丰富自驾出游的休闲场景；整车基于MPV车型外观延展设计，对车尾采用半包围式造型改造，打造具备遮光效果的车尾投影放映空间，在保留原车大气稳重的整车气质基础上，塑造兼具舒适氛围与动感线条的全新视觉形态。'},
+      {title:'感应小夜灯设计',tags:['结构设计','功能实现'],thumb:'assets/quicklook/Rectangle 301.png',slides:['assets/quicklook/Rectangle 301.png','assets/quicklook/Rectangle 302.png','assets/quicklook/Rectangle 303.png'],desc:'本次结构设计面向夜间出行场景打造多功能小夜灯，相较于市面常规产品拓展复合实用功能：灯具与粘贴支架采用磁吸式组合结构，灯体可单独拆卸，实现固定照明与便携手持两用；整机依靠按键切换工作模式，搭载三类核心功能：具备人体距离感应调光逻辑，人体越靠近灯光亮度越低，适配起夜柔和用光需求；实时采集环境温湿度，并通过灯光色彩直观反馈数据；同时支持常亮模式，可适配居家、户外等多元使用场景。'},
+      {title:'手柄交互流程拆解',tags:['动作场景','握持分析','验证思路'],thumb:'assets/motion-project-04.png',slides:['assets/motion-project-04.png','assets/motion-project-05.png','assets/motion-project-06.png'],desc:'从动作幅度、握持姿态和安全风险出发，拆解运动手柄在不同玩法中的核心体验矛盾，形成可验证的设计方向。'},
+      {title:'智慧出行方案整合',tags:['项目协同','信息架构','汇报逻辑'],thumb:'assets/gac-project-04.png',slides:['assets/gac-project-04.png','assets/gac-project-05.png','assets/gac-project-06.png'],desc:'将多组子方案、角色分工和项目阶段整理成清晰的内容结构，帮助复杂项目在短时间内形成统一表达。'},
+      {title:'滑板车服务闭环',tags:['B端管理','公共场景','运营维护'],thumb:'assets/scooter-project-04.png',slides:['assets/scooter-project-04.png','assets/scooter-project-05.png','assets/scooter-project-06.png'],desc:'从车辆使用者、维护人员和运营方三个视角，思考公共租赁产品如何完成从使用体验到后台管理的闭环。'},
+      {title:'纯水机结构与维护',tags:['模块化','防呆设计','故障反馈'],thumb:'assets/eped-project-04.png',slides:['assets/eped-project-04.png','assets/eped-project-05.png','assets/eped-project-06.png'],desc:'将滤芯更换、漏水风险、触控操作和设备状态提示作为关键问题，优化实验室设备的可靠性和维护效率。'},
+      {title:'家庭能源交互系统',tags:['数据反馈','模块组合','能源管理'],thumb:'assets/solis-project-04.png',slides:['assets/solis-project-04.png','assets/solis-project-05.png','assets/solis-project-06.png'],desc:'围绕家庭用电、备电和设备状态可视化，探索储能产品在硬件形态、模块组合和智能反馈上的设计表达。'}
+    ];
+
+    const quickRows=document.querySelector('#quickRows'),quickLook=document.querySelector('.quick-look');
+    const quickOverlay=document.querySelector('#quickOverlay'),quickHero=document.querySelector('#quickHero'),quickDots=document.querySelector('#quickDots');
+    const quickTitle=document.querySelector('#quickTitle'),quickModalTags=document.querySelector('#quickModalTags'),quickDesc=document.querySelector('#quickDesc');
+    let quickActive=0,quickSlide=0,quickTimer;
+    let quickTracks=[],quickPointer={active:false,x:0},quickLast=performance.now();
+
+    function makeQuickCard(item,index){
+      const card=document.createElement('button');
+      card.className='quick-card';
+      card.type='button';
+      card.dataset.quickIndex=index;
+      card.innerHTML=`<img class="quick-thumb" src="${item.thumb}" alt="${item.title}"><div class="quick-card-bottom"><h3>${item.title}</h3><div class="quick-tags">${item.tags.map(tag=>`<span>${tag}</span>`).join('')}</div></div>`;
+      return card;
+    }
+    function buildQuickRows(){
+      quickRows.innerHTML='';
+      const mobile=innerWidth<=760;
+      const groups=[quickItems.slice(0,5)];
+      groups.forEach((group,rowIndex)=>{
+        const row=document.createElement('div');
+        row.className=`quick-row${rowIndex?' offset':''}`;
+        const track=document.createElement('div');
+        track.className='quick-track';
+        (mobile?group:[...group,...group]).forEach((item)=>track.appendChild(makeQuickCard(item,quickItems.indexOf(item))));
+        row.appendChild(track);
+        quickRows.appendChild(row);
+      });
+      quickTracks=[...quickRows.querySelectorAll('.quick-track')].map((track)=>({track,x:-(track.scrollWidth/4)}));
+    }
+    quickLook.addEventListener('pointermove',event=>{
+      const rect=quickLook.getBoundingClientRect();
+      quickPointer.active=innerWidth>760;
+      quickPointer.x=(event.clientX-rect.left)/rect.width;
+    });
+    quickLook.addEventListener('pointerleave',()=>{quickPointer.active=false});
+    function animateQuickRows(now){
+      const dt=Math.min(48,now-quickLast);quickLast=now;
+      if(innerWidth>760&&!document.body.classList.contains('quick-open')){
+        let speed=-.018;
+        if(quickPointer.active){
+          const edge=quickPointer.x<.32?-(.32-quickPointer.x)/.32:quickPointer.x>.68?(quickPointer.x-.68)/.32:0;
+          speed=edge?edge*-.18:-.018;
+        }
+        for(const item of quickTracks){
+          const loop=item.track.scrollWidth/2;
+          if(loop>0){
+            item.x+=speed*dt;
+            if(item.x<=-loop)item.x+=loop;
+            if(item.x>0)item.x-=loop;
+            item.track.style.transform=`translateX(${item.x}px)`;
+          }
+        }
+      }
+      requestAnimationFrame(animateQuickRows);
+    }
+    requestAnimationFrame(animateQuickRows);
+    function setQuickSlide(index){
+      quickSlide=(index+quickItems[quickActive].slides.length)%quickItems[quickActive].slides.length;
+      quickHero.querySelectorAll('.quick-slide').forEach((img,i)=>img.classList.toggle('active',i===quickSlide));
+      quickDots.querySelectorAll('.quick-dot').forEach((dot,i)=>dot.classList.toggle('active',i===quickSlide));
+    }
+    function startQuickTimer(){
+      clearInterval(quickTimer);
+      quickTimer=setInterval(()=>setQuickSlide(quickSlide+1),3600);
+    }
+    function openQuick(index){
+      quickActive=index;quickSlide=0;
+      const item=quickItems[index];
+      quickTitle.textContent=item.title;
+      quickDesc.textContent=item.desc;
+      quickModalTags.innerHTML=item.tags.map(tag=>`<span>${tag}</span>`).join('');
+      quickHero.innerHTML=`<button class="quick-nav-btn quick-prev" type="button" aria-label="上一张">‹</button>${item.slides.map((src,i)=>`<img class="quick-slide${i===0?' active':''}" src="${src}" alt="${item.title} 第${i+1}张">`).join('')}<button class="quick-nav-btn quick-next" type="button" aria-label="下一张">›</button>`;
+      quickDots.innerHTML=item.slides.map((_,i)=>`<button class="quick-dot${i===0?' active':''}" type="button" aria-label="第${i+1}张"></button>`).join('');
+      quickDots.querySelectorAll('.quick-dot').forEach((dot,i)=>dot.addEventListener('click',()=>{setQuickSlide(i);startQuickTimer()}));
+      quickHero.querySelector('.quick-prev').addEventListener('click',event=>{event.stopPropagation();setQuickSlide(quickSlide-1);startQuickTimer()});
+      quickHero.querySelector('.quick-next').addEventListener('click',event=>{event.stopPropagation();setQuickSlide(quickSlide+1);startQuickTimer()});
+      quickOverlay.classList.add('open');
+      quickOverlay.setAttribute('aria-hidden','false');
+      document.body.classList.add('quick-open');
+      startQuickTimer();
+    }
+    function closeQuick(){
+      clearInterval(quickTimer);
+      quickOverlay.classList.remove('open');
+      quickOverlay.setAttribute('aria-hidden','true');
+      document.body.classList.remove('quick-open');
+    }
+    quickRows.addEventListener('mouseenter',()=>quickLook.classList.add('paused'));
+    quickRows.addEventListener('mouseleave',()=>quickLook.classList.remove('paused'));
+    quickRows.addEventListener('click',event=>{
+      const card=event.target.closest('.quick-card');
+      if(card)openQuick(Number(card.dataset.quickIndex));
+    });
+    buildQuickRows();
+    let quickLayoutMobile=innerWidth<=760,quickResizeTimer;
+    addEventListener('resize',()=>{
+      clearTimeout(quickResizeTimer);
+      quickResizeTimer=setTimeout(()=>{
+        const nextMobile=innerWidth<=760;
+        if(nextMobile!==quickLayoutMobile){
+          quickLayoutMobile=nextMobile;
+          buildQuickRows();
+        }
+      },160);
+    });
+    quickOverlay.addEventListener('click',event=>{if(event.target===quickOverlay)closeQuick()});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'&&quickOverlay.classList.contains('open'))closeQuick()});
 
     document.querySelectorAll('[data-project-transition]').forEach(link=>{
       const project=link.closest('.project');
